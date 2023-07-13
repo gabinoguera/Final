@@ -7,18 +7,16 @@ try:
 except ValueError:
     print("Ingrese un número entero válido para el tamaño de la matriz.")
 
-#creamos una matriz vacía para almacenar el valor del usuario
-matriz = []
+# Crea una matriz vacía para almacenar el valor del usuario
+matriz = [[0 for f in range(n)] for c in range(n)]
 
-#creamos un bucle for para recorrer los valores de n y almacenarlos en una lista
+# Rellenar la matriz con números aleatorios
 for f in range(n):
-    fila = []
-    for x in range(n):
-        fila.append(random.randint(0,9))
-        matriz.append(fila)
+    for c in range(n):
+        matriz[f][c] = random.randint(0, 9)
 
-#imprimir matriz
-print("matriz generada")
+# Imprime la matriz
+print("Matriz generada")
 for fila in matriz:
     print(fila)
 
@@ -29,17 +27,17 @@ sumas_columnas = []
 
 #recorremos la matriz, inicializamos en 0 el valor de las filas y aumentamos su valor
 
-for f in range(len(matriz)):
+for f in range(n):
     suma_fila = 0
-    for x in range(len(matriz[f])):
-        suma_fila += matriz[f][x]
+    for c in range(n):
+        suma_fila += matriz[f][c]
     sumas_filas.append(suma_fila)
 
 #recorremos la matriz, inicializamos en 0 el valor de las columnas y aumentamos su valor
-for i in range(len(matriz[0])):
+for c in range(n):
     suma_columna = 0
-    for j in range(len(matriz)):
-        suma_columna += matriz[j][i]
+    for f in range(n):
+        suma_columna += matriz[f][c]
     sumas_columnas.append(suma_columna)
 
 #imprimimos la suma de filas y columnas
